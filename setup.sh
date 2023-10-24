@@ -1,9 +1,11 @@
+#!usr/bin/bash
+
 #
 #	Variables
 #
 xorgpkg=" xorg-server xorg-xinit xorg-xset xorg-xsetroot xorg-xrandr xorg-xrdb "
 
-packages=" bspwm sxhkd dmenu polybar picom xfce4-terminal gnu-free-fonts feh "
+packages=" bspwm sxhkd dmenu polybar picom kitty gnu-free-fonts feh "
 
 
 #
@@ -41,3 +43,7 @@ InstallBetterlockscreen(){
 #
 #	Installing
 #
+updatePacman
+InstallPackages
+
+cp .xinitrc ../
