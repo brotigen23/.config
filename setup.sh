@@ -1,8 +1,8 @@
 #!usr/bin/bash
 
-########################################
-#				Variables
-########################################
+#########################################
+#				Variables				#
+#########################################
 xorgpkg="	xorg-server 
 			xorg-xinit 
 			xorg-xset 
@@ -10,22 +10,26 @@ xorgpkg="	xorg-server
 			xorg-xrandr 
 			xorg-xrdb	"
 
-packages="	bspwm 
-			xhkd 
-			dmenu 
-			polybar 
-			picom 
-			kitty 
-			gnu-free-fonts 
-			feh 
-			git 
-			github-cli	
-			fish	"
+impPackages="	bspwm 
+				sxhkd 
+				polybar 
+				picom
+				gnu-free-fonts
+				git 
+				github-cli	"
+
+addPackages="	dmenu
+				ranger
+				kitty
+				feh
+				fish	"
+				
+fonts="	adobe-source-code-pro-fonts	"
 
 
-########################################
-#				Functions
-########################################
+#########################################
+#				Functions				#
+#########################################
 updatePacman(){
 	echo "Update pacman repo"
 	sudo pacman --noconfirm -Syu
@@ -38,9 +42,9 @@ installPackages(){
 	cp .xinitrc ../
 
 	echo "Install other packages"
-	sudo pacman --noconfirm -S $packages 
+	sudo pacman --noconfirm -S $impPackages $addPackages $fonts
 	
-	chsh -s (which fish)
+	chsh -s $(which fish)
 }
 
 installYay(){
@@ -52,15 +56,16 @@ installYay(){
 	rm -rf yay
 }
 
-installBetterlockscreen(){
+installYayPackages(){
 	InstallYay
 	yay --noconfirm -S betterlockscreen
 }
 
 
-########################################
-#				Installing
-########################################
+#########################################
+#				Installing				#
+#########################################
 updatePacman
 installPackages
+
 
