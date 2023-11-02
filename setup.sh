@@ -16,7 +16,9 @@ impPackages="	bspwm
 				picom
 				gnu-free-fonts
 				git 
-				github-cli	"
+				github-cli	
+				neovim	
+				brightnessctl	"
 
 addPackages="	dmenu
 				ranger
